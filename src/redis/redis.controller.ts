@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Delete, Get, Param } from '@nestjs/common';
 import { RedisService } from './redis.service';
 
 @Controller('redis')
@@ -14,5 +14,10 @@ export class RedisController {
   @Get('set/:key/:value')
   async setValue(@Param('key') key: string, @Param('value') value: string): Promise<void> {
     await this.redisService.setValue(key, value);
+  }
+
+  @Delete(':key')
+  async deleteValue(@Param('key') key: string): Promise<void> {
+    await this.redisService.deleteValue(key);
   }
 }

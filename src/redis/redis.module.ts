@@ -5,6 +5,6 @@ import { RedisController } from './redis.controller';
 @Module({
   providers: [RedisService],
   controllers: [RedisController],
-  exports: [RedisService]
+  exports: [RedisService],
 })
-export class RedisModule { }
+export class RedisModule {}
